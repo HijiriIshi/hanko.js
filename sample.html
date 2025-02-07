@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hanko.js - Sample</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="./hanko.js"></script>
+</head>
+<body>
+    <h1>hanko.js</h1>
+    <h2>standard</h2>
+    <span id="normal-hanko1"></span>
+    <span id="normal-hanko2"></span>
+    <span id="normal-hanko3"></span>
+    <span id="normal-hanko4"></span>
+    <span id="normal-hanko5"></span>
+    <script>
+        const hanko = new Hanko({color: "red", size: 100});
+        $("#normal-hanko1").append(hanko.generate("原"));
+        $("#normal-hanko2").append(hanko.generate("佐藤"));
+        $("#normal-hanko3").append(hanko.generate("三井田"));
+        $("#normal-hanko4").append(hanko.generate("勅使河原"));
+        $("#normal-hanko5").append(hanko.generate("左衛門三郎"));
+    </script>
+</body>
+</html>
