@@ -17,11 +17,18 @@
     <span id="normal-hanko5"></span>
     <script>
         const hanko = new Hanko({color: "red", size: 100});
-        $("#normal-hanko1").append(hanko.generate("原"));
+        $("#normal-hanko1").append(hanko.generate("原","原 太郎"));
         $("#normal-hanko2").append(hanko.generate("佐藤"));
-        $("#normal-hanko3").append(hanko.generate("三井田"));
+        $("#normal-hanko3").append(hanko.generate("三井田", "三井田 二郎"));
         $("#normal-hanko4").append(hanko.generate("勅使河原"));
         $("#normal-hanko5").append(hanko.generate("左衛門三郎"));
+        $("#normal-hanko5").append(hanko.generate("あいうえおか"));
+        $("#normal-hanko5").append(hanko.generate("A"));
+        $("#normal-hanko5").append(hanko.generate("AB"));
+        $("#normal-hanko5").append(hanko.generate("ABC"));
+        $("#normal-hanko5").append(hanko.generate("ABCD"));
+        $("#normal-hanko5").append(hanko.generate("ABCDE"));
+        $("#normal-hanko5").append(hanko.generate("ABCDEF"));
     </script>
 </body>
 </html>

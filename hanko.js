@@ -17,20 +17,21 @@ class Hanko {
         this.size = settings.size || 50;
     }
 
-    generate(text) {
+    generate(text, tooltip = undefined) {
         if (!text || text.length === 0) return undefined;
 
         const layoutMethods = {
             standard: this.#generateStandard.bind(this)
         };
 
-        return layoutMethods[this.layout](text);
+        return layoutMethods[this.layout](text, tooltip);
     }
 
-    #generateStandard(text) {
+    #generateStandard(text, tooltip) {
         const circle = this.#generateCircle();
         const texts = this.#generateStandardTexts(text);
-        return `<svg width="${this.size}" height="${this.size}">${circle}${texts}</svg>`;
+        const title = tooltip !== undefined ? `<title>${tooltip}</title>` : ""
+        return `<svg width="${this.size}" height="${this.size}"><title>${title}</title>${circle}${texts}</svg>`;
     }
 
     #generateCircle() {
@@ -70,7 +71,7 @@ class Hanko {
                     this.#getPosition(this.size / 2.7, this.size / 1.26, fontSize)
                 ];
                 break;
-            default:
+            case 5:
                 fontSize *= 0.28;
                 positions = [
                     this.#getPosition(this.size / 1.55, this.size / 3, fontSize),
@@ -78,6 +79,17 @@ class Hanko {
                     this.#getPosition(this.size / 1.55, this.size / 1.15, fontSize),
                     this.#getPosition(this.size / 2.7, this.size / 2.2, fontSize),
                     this.#getPosition(this.size / 2.7, this.size / 1.26, fontSize)
+                ];
+                break;
+            default:
+                fontSize *= 0.33;
+                positions = [
+                    this.#getPosition(this.size / 1.55, this.size / 3, fontSize),
+                    this.#getPosition(this.size / 1.55, this.size / 1.65, fontSize),
+                    this.#getPosition(this.size / 1.55, this.size / 1.15, fontSize),
+                    this.#getPosition(this.size / 2.7, this.size / 3, fontSize),
+                    this.#getPosition(this.size / 2.7, this.size / 1.65, fontSize),
+                    this.#getPosition(this.size / 2.7, this.size / 1.15, fontSize)
                 ];
         }
 

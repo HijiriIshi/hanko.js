@@ -4,11 +4,11 @@ Create a seal in SVG format.
 
 ## How to use
 ### standard
-日本の苗字の最大数である5文字まで対応 5文字以降は切捨
+Supports up to 6 characters.
 ```js
 const hanko = new Hanko({color: "red", size: 50});
-console.log(hanko.generate("鈴木"));
 console.log(hanko.generate("島"));
+console.log(hanko.generate("鈴木", "鈴木 太郎")); // tooltip
 ```
 
 ## Sample
